@@ -146,33 +146,32 @@ std::string letterToMorse(char letter)
     {
         return "----.";
     }
+    if(letter == ' ')
+    {
+        return "/";
+    }
+    else
+    {
+        return "[?]";
+    }
 }
 std::string wordToMorse(std::string word)
 {
     std::string result = "";
-    for(auto letterOfWord : word)
+    for(int letterOfWord = 0; letterOfWord < word.size(); letterOfWord++)
     {
-        result += letterToMorse(letterOfWord);
+        if(letterOfWord != 0)
+        {
+            result += " ";
+        }
+        result += letterToMorse(word.at(letterOfWord));
     }
     return result;
 }
 int main()
 {
     std::string word;
-    int numberOfWord = 0;
-    while(word != "stop")
-    {
-        ++numberOfWord;
-        std::cin >> word;
-        if(word == "stop")
-        {
-            break;
-        }
-        if(numberOfWord > 1)
-        {
-            std::cout << " ";
-        }
-        std::cout << wordToMorse(word);
-    }
+    std::getline(std::cin, word);
+    std::cout << wordToMorse(word);
     return 0;
 }

@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/morseCodeTranslator.dir/main.cpp.o  -o morseCodeTranslator 
