@@ -25,7 +25,7 @@ std::string letterToMorse(char letter)
     }
     if(letter == 'E' || letter == 'e')
     {
-        return "-";
+        return ".";
     }
     if(letter == 'F' || letter == 'f')
     {
@@ -191,7 +191,7 @@ char letterToLatin(std::string letter)
     {
         return 'D';
     }
-    if(letter == "-")
+    if(letter == ".")
     {
         return 'E';
     }
@@ -352,7 +352,7 @@ int main()
 {
     std::string word;
     std::getline(std::cin, word);
-    std::cout << wordToMorse(word);
-    std::cout << wordToLatin(word);
+    //std::cout << wordToMorse(word);
+    std::cout << wordToLatin(wordToMorse(word));
     return 0;
 }
