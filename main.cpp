@@ -4,6 +4,7 @@ std::string letterToMorse(char letter);
 std::string wordToMorse(std::string word);
 char letterToLatin(std::string letter);
 std::string wordToLatin(std::string sentence);
+void menu();
 
 std::string letterToMorse(char letter)
 {
@@ -347,12 +348,39 @@ std::string wordToLatin(std::string sentence)
     }
     return result;
 }
-
-int main()
+void menu()
 {
     std::string word;
-    std::getline(std::cin, word);
-    //std::cout << wordToMorse(word);
-    std::cout << wordToLatin(wordToMorse(word));
-    return 0;
+    std::string choose;
+    std::cout << "\n1. Encoder";
+    std::cout << "\n2. Decoder";
+    std::cout << "\n3. About";
+    std::cout << "\nEnter number: ";
+    std::getline(std::cin, choose);
+    if(choose == "1" || choose == "2")
+    {
+        std::cout << "Enter sentence: ";
+        std::getline(std::cin, word);
+    }
+    if(choose == "1")
+    {
+        std::cout << wordToMorse(word) << std::endl;
+    }
+    else if(choose == "2")
+    {
+        std::cout << wordToLatin(word) << std::endl;
+    }
+    else if(choose == "3")
+    {
+        std::cout << "Jakub Choptiany | C++ | 2020" << std::endl;
+        std::cout << "github.com/JChoptiany" << std::endl;
+    }
+    else
+    {
+        menu();
+    }
+}
+int main()
+{
+    menu();
 }
