@@ -1,5 +1,10 @@
 #include <iostream>
 
+std::string letterToMorse(char letter);
+std::string wordToMorse(std::string word);
+char letterToLatin(std::string letter);
+std::string wordToLatin(std::string sentence);
+
 std::string letterToMorse(char letter)
 {
     if(letter == 'A' || letter == 'a')
@@ -160,7 +165,7 @@ std::string wordToMorse(std::string word)
     std::string result = "";
     for(int letterOfWord = 0; letterOfWord < word.size(); letterOfWord++)
     {
-        if(letterOfWord != 0)
+        if (letterOfWord != 0)
         {
             result += " ";
         }
@@ -168,10 +173,186 @@ std::string wordToMorse(std::string word)
     }
     return result;
 }
+char letterToLatin(std::string letter)
+{
+    if(letter == ".-")
+    {
+        return 'A';
+    }
+    if(letter == "-...")
+    {
+        return 'B';
+    }
+    if(letter == "-.-.")
+    {
+        return 'C';
+    }
+    if(letter == "-..")
+    {
+        return 'D';
+    }
+    if(letter == "-")
+    {
+        return 'E';
+    }
+    if(letter == "..-.")
+    {
+        return 'F';
+    }
+    if(letter == "--.")
+    {
+        return 'G';
+    }
+    if(letter == "....")
+    {
+        return 'H';
+    }
+    if(letter == "..")
+    {
+        return 'I';
+    }
+    if(letter == ".---")
+    {
+        return 'J';
+    }
+    if(letter == "-.-")
+    {
+        return 'K';
+    }
+    if(letter == ".-..")
+    {
+        return 'L';
+    }
+    if(letter == "--")
+    {
+        return 'M';
+    }
+    if(letter == "-.")
+    {
+        return 'N';
+    }
+    if(letter == "---")
+    {
+        return 'O';
+    }
+    if(letter == ".--.")
+    {
+        return 'P';
+    }
+    if(letter == "--.-")
+    {
+        return 'Q';
+    }
+    if(letter == ".-.")
+    {
+        return 'R';
+    }
+    if(letter == "...")
+    {
+        return 'S';
+    }
+    if(letter == "-")
+    {
+        return 'T';
+    }
+    if(letter == "..-")
+    {
+        return 'U';
+    }
+    if(letter == "...-")
+    {
+        return 'V';
+    }
+    if(letter == ".--")
+    {
+        return 'W';
+    }
+    if(letter == "-..-")
+    {
+        return 'X';
+    }
+    if(letter == "-.--")
+    {
+        return 'Y';
+    }
+    if(letter == "--..")
+    {
+        return 'Z';
+    }
+    if(letter == "-----")
+    {
+        return '0';
+    }
+    if(letter == ".----")
+    {
+        return '1';
+    }
+    if(letter == "..---")
+    {
+        return '2';
+    }
+    if(letter == "...--")
+    {
+        return '3';
+    }
+    if(letter == "....-")
+    {
+        return '4';
+    }
+    if(letter == ".....")
+    {
+        return '5';
+    }
+    if(letter == "-....")
+    {
+        return '6';
+    }
+    if(letter == "--...")
+    {
+        return '7';
+    }
+    if(letter == "---..")
+    {
+        return '8';
+    }
+    if(letter == "----.")
+    {
+        return '9';
+    }
+    if(letter == "/")
+    {
+            return ' ';
+    }
+    else
+    {
+        return '?';
+    }
+}
+std::string wordToLatin(std::string sentence)
+{
+    sentence += ' ';
+    std::string result = "";
+    std::string currentLetter = "";
+    for(int i = 0; i < sentence.size(); i++)
+    {
+        if(sentence.at(i) != ' ')
+        {
+            currentLetter += sentence.at(i);
+        }
+        else
+        {
+            result += letterToLatin(currentLetter);
+            currentLetter = "";
+        }
+    }
+    return result;
+}
+
 int main()
 {
     std::string word;
     std::getline(std::cin, word);
     std::cout << wordToMorse(word);
+    std::cout << wordToLatin(word);
     return 0;
 }
