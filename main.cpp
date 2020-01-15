@@ -1,9 +1,11 @@
 #include <iostream>
+#include <fstream>
 
 std::string letterToMorse(char letter);
 std::string wordToMorse(std::string word);
 char letterToLatin(std::string letter);
 std::string wordToLatin(std::string sentence);
+void fileTranslator(const std::string& type);
 void menu();
 
 std::string letterToMorse(char letter)
@@ -352,13 +354,16 @@ void menu()
 {
     std::string word;
     std::string choose;
-    std::cout << "\n1. Encoder";
-    std::cout << "\n2. Decoder";
-    std::cout << "\n3. About";
+    std::cout << "\n1. Text encoder";
+    std::cout << "\n2. Text decoder";
+    std::cout << "\n3. File encoder";
+    std::cout << "\n4. File decoder";
+    std::cout << "\n5. About";
     std::cout << "\nEnter number: ";
     std::getline(std::cin, choose);
     if(choose == "1" || choose == "2")
     {
+        std::cout << "[.] short signal, [-] long singal, [ ] separates  morse letters, [/] separates morse words" << std::endl;
         std::cout << "Enter sentence: ";
         std::getline(std::cin, word);
     }
@@ -372,12 +377,52 @@ void menu()
     }
     else if(choose == "3")
     {
+        fileTranslator("Encode");
+    }
+    else if(choose == "4")
+    {
+        fileTranslator("Decode");
+    }
+    else if(choose == "5")
+    {
         std::cout << "Jakub Choptiany | C++ | 2020" << std::endl;
         std::cout << "github.com/JChoptiany" << std::endl;
     }
     else
     {
         menu();
+    }
+}
+void fileTranslator(const std::string &type)
+{
+    std::fstream file;
+    std::string line;
+    if(type == "Encode")
+    {
+        file.open("../dataToEncode.txt", std::ios::in);
+    }
+    else
+    {
+        file.open("../dataToDecode.txt", std::ios::in);
+    }
+    if(file.good())
+    {
+        while (getline(file, line))
+        {
+            if(type == "Encode")
+            {
+                std::cout << wordToMorse(line) << std::endl;
+            }
+            else
+            {
+                std::cout << wordToLatin(line) << std::endl;
+            }
+        }
+        file.close();
+    }
+    else
+    {
+        std::cout << "Please add file named dataToEncode.txt or dataToDecode.txt";
     }
 }
 int main()

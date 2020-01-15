@@ -9,4 +9,6 @@
 /home/jchoptiany/CLionProjects/morseCodeTranslator/main.cpp
 iostream
 -
+fstream
+-
 
