@@ -10,157 +10,110 @@ void menu();
 
 std::string letterToMorse(char letter)
 {
-    if(letter == 'A' || letter == 'a')
+    switch(letter)
     {
-        return ".-";
-    }
-    if(letter == 'B' || letter == 'b')
-    {
-        return "-...";
-    }
-    if(letter == 'C' || letter == 'c')
-    {
-        return "-.-.";
-    }
-    if(letter == 'D' || letter == 'd')
-    {
-        return "-..";
-    }
-    if(letter == 'E' || letter == 'e')
-    {
-        return ".";
-    }
-    if(letter == 'F' || letter == 'f')
-    {
-        return "..-.";
-    }
-    if(letter == 'G' || letter == 'g')
-    {
-        return "--.";
-    }
-    if(letter == 'H' || letter == 'h')
-    {
-        return "....";
-    }
-    if(letter == 'I' || letter == 'i')
-    {
-        return "..";
-    }
-    if(letter == 'J' || letter == 'j')
-    {
-        return ".---";
-    }
-    if(letter == 'K' || letter == 'k')
-    {
-        return "-.-";
-    }
-    if(letter == 'L' || letter == 'l')
-    {
-        return ".-..";
-    }
-    if(letter == 'M' || letter == 'm')
-    {
-        return "--";
-    }
-    if(letter == 'N' || letter == 'n')
-    {
-        return "-.";
-    }
-    if(letter == 'O' || letter == 'o')
-    {
-        return "---";
-    }
-    if(letter == 'P' || letter == 'p')
-    {
-        return ".--.";
-    }
-    if(letter == 'Q' || letter == 'q')
-    {
-        return "--.-";
-    }
-    if(letter == 'R' || letter == 'r')
-    {
-        return ".-.";
-    }
-    if(letter == 'S' || letter == 's')
-    {
-        return "...";
-    }
-    if(letter == 'T' || letter == 't')
-    {
-        return "-";
-    }
-    if(letter == 'U' || letter == 'u')
-    {
-        return "..-";
-    }
-    if(letter == 'V' || letter == 'v')
-    {
-        return "...-";
-    }
-    if(letter == 'W' || letter == 'w')
-    {
-        return ".--";
-    }
-    if(letter == 'X' || letter == 'x')
-    {
-        return "-..-";
-    }
-    if(letter == 'Y' || letter == 'y')
-    {
-        return "-.--";
-    }
-    if(letter == 'Z' || letter == 'z')
-    {
-        return "--..";
-    }
-    if(letter == '0')
-    {
-        return "-----";
-    }
-    if(letter == '1')
-    {
-        return ".----";
-    }
-    if(letter == '2')
-    {
-        return "..---";
-    }
-    if(letter == '3')
-    {
-        return "...--";
-    }
-    if(letter == '4')
-    {
-        return "....-";
-    }
-    if(letter == '5')
-    {
-        return ".....";
-    }
-    if(letter == '6')
-    {
-        return "-....";
-    }
-    if(letter == '7')
-    {
-        return "--...";
-    }
-    if(letter == '8')
-    {
-        return "---..";
-    }
-    if(letter == '9')
-    {
-        return "----.";
-    }
-    if(letter == ' ')
-    {
-        return "/";
-    }
-    else
-    {
-        return "[?]";
+        case 'a':
+        case 'A':
+            return ".-";
+        case 'b':
+        case 'B':
+           return "-...";
+        case 'c':
+        case 'C':
+            return "-.-.";
+        case 'd':
+        case 'D':
+            return "-..";
+        case 'e':
+        case 'E':
+            return ".";
+        case 'f':
+        case 'F':
+            return "..-.";
+        case 'g':
+        case 'G':
+            return "--.";
+        case 'h':
+        case 'H':
+            return "....";
+        case 'i':
+        case 'I':
+            return "..";
+        case 'j':
+        case 'J':
+            return ".---";
+        case 'k':
+        case 'K':
+            return "-.-";
+        case 'l':
+        case 'L':
+            return ".-..";
+        case 'm':
+        case 'M':
+            return "--";
+        case 'n':
+        case 'N':
+            return "-.";
+        case 'o':
+        case 'O':
+            return "---";
+        case 'p':
+        case 'P':
+            return ".--.";
+        case 'q':
+        case 'Q':
+            return "--.-";
+        case 'r':
+        case 'R':
+            return ".-.";
+        case 's':
+        case 'S':
+            return "...";
+        case 't':
+        case 'T':
+            return "-";
+        case 'u':
+        case 'U':
+            return "..-";
+        case 'v':
+        case 'V':
+            return "...-";
+        case 'w':
+        case 'W':
+            return ".--";
+        case 'x':
+        case 'X':
+            return "-..-";
+        case 'y':
+        case 'Y':
+            return "-.--";
+        case 'z':
+        case 'Z':
+            return "--..";
+        case '0':
+            return "-----";
+        case '1':
+            return ".----";
+        case '2':
+            return "..---";
+        case '3':
+            return "...--";
+        case '4':
+            return "....-";
+        case '5':
+            return ".....";
+        case '6':
+            return "-....";
+        case '7':
+            return "--...";
+        case '8':
+            return "---..";
+        case '9':
+            return "----.";
+        case ' ':
+            return "/";
+        default:
+            return "[?]";
     }
 }
 std::string wordToMorse(std::string word)
@@ -429,3 +382,5 @@ int main()
 {
     menu();
 }
+
+
